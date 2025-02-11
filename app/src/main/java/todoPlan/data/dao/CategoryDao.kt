@@ -1,10 +1,11 @@
-package todoPlan.data
+package todoPlan.data.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
+import todoPlan.data.entity.Category
 
 @Dao
 interface CategoryDao {

@@ -5,6 +5,10 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import todoPlan.data.dao.CategoryDao
+import todoPlan.data.dao.TaskDao
+import todoPlan.data.entity.Category
+import todoPlan.data.entity.Task
 
 @Database(entities = [Task::class, Category::class], version=1)
 @TypeConverters(Converters::class)

@@ -1,4 +1,4 @@
-package todoPlan.data
+package todoPlan.data.entity
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
