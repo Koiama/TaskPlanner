@@ -9,7 +9,7 @@ import java.time.LocalTime
 data class Task(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val title: String,
-    val date: String,
+    val date: LocalDate,
     val name: String,
     val startTime: LocalTime,
     val durationMinutes: Int,
