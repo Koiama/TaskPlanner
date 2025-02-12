@@ -14,7 +14,7 @@ import todoPlan.data.entity.Task
 @TypeConverters(Converters::class)
 abstract class TaskDatabase(): RoomDatabase() {
     abstract fun taskDao(): TaskDao
-    abstract fun CategoryDao(): CategoryDao
+    abstract fun categoryDao(): CategoryDao
 
     companion object {
         @Volatile
