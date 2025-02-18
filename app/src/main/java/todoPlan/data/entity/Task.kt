@@ -21,9 +21,8 @@ data class Task(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val title: String,
     val date: LocalDate,
-    val name: String,
     val startTime: LocalTime,
-    val durationMinutes: Int,
+    val durationMinutes: Int? = null,
     val isCompleted: Boolean = false,
     val categoryId: Int? = null  // The task may not have a category
 )

@@ -1,5 +1,6 @@
 package todoPlan.ui.today
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,10 +13,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.todoplan.R
 import kotlinx.coroutines.launch
 import todoPlan.data.TaskDatabase
+import todoPlan.data.entity.Task
 import todoPlan.data.repository.CategoryRepository
 import todoPlan.data.repository.TaskRepository
 import todoPlan.ui.viewmodel.TaskViewModel
 import todoPlan.ui.viewmodel.TaskViewModelFactory
+import java.time.LocalDate
+import java.time.LocalTime
 
 class TodayFragment: Fragment() {
     private val viewModel: TaskViewModel by viewModels {
@@ -24,6 +28,15 @@ class TodayFragment: Fragment() {
             CategoryRepository(TaskDatabase.getDatabase(requireContext()).categoryDao())
         )
     }
+    //значение для тестов
+    val newTask = Task(
+        title = "New Task",
+        date = LocalDate.now(),
+        categoryId = null,
+        startTime = LocalTime.now(),
+        durationMinutes = 60,
+        isCompleted = false)
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,6 +54,7 @@ class TodayFragment: Fragment() {
         val taskAdapter = TaskAdapter(emptyList()) // create TaskAdapter with empty list
         recyclerView.adapter = taskAdapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext()) // or any other layout manager
+        viewModel.addTask(newTask)
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.tasks.collect { tasks ->

@@ -8,5 +8,7 @@
         android:id="@+id/taskTitleTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Task Title" />
+        android:text="Task Title"
+        android:textColor="#111111"
+        android:textSize="20dp"/>
 </LinearLayout>
